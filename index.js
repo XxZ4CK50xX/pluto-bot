@@ -10,7 +10,7 @@ var version = '0.5.0 ALPHA';
 
 
 bot.on('ready', () =>{
-    console.log('good luck - zack');
+    console.log('good luck');
 })
 
 bot.on('message', msg=>{
