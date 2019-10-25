@@ -1,18 +1,20 @@
 const Discord = require('discord.js');
-const bot = new Discord.Client();
+const client = new Discord.Client();
 const settings = require('./settings.json');
 const chalk = require('chalk');
 const fs = require('fs');
 const moment = require('moment');
-
-
+require('./utils/eventLoader')(client);
+	function log(message) {
+    console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] ${message}`);
+	}
 
 const prefix = '.';
 
 var version = '0.5.0 ALPHA';
 
 
-bot.on('ready', () =>{
+client.on('ready', () =>{
     console.log('good luck');
 })
 
@@ -28,7 +30,7 @@ fs.readdir('./commands/', (err, files) => {
 });
 
 
-bot.on('message', msg=>{
+client.on('message', msg=>{
 
     let args = msg.content.substring(prefix.length).split(" ");
 
@@ -46,4 +48,4 @@ bot.on('message', msg=>{
     }
 })
 
-bot.login(settings.DISCORD);
+client.login(settings.DISCORD);
