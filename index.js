@@ -1,7 +1,8 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
+const settings = require('./settings.json');
 
-const token = 'inserttoken';
+
 
 const prefix = '.';
 
@@ -30,4 +31,4 @@ bot.on('message', msg=>{
     }
 })
 
-bot.login(token);
+bot.login(settings.discord);
